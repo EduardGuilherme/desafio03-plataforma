@@ -20,17 +20,20 @@ const Login = () => {
     });
 
     const onSubmit = async (formData) => {
+        console.log("entrei aqui")
         try{
+            console.log(formData)
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
-            
+            console.log()
             if(data.length && data[0].id){
+                alert("entrei aqui")
                 navigate('/feed') 
                 return
             }
 
             alert('Usuário ou senha inválido')
         }catch(e){
-            
+            console.log(e)
         }
     };
 
